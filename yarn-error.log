@@ -1,0 +1,52 @@
+Arguments: 
+  /Users/namba/.anyenv/envs/nodenv/versions/15.12.0/bin/node /Users/namba/.anyenv/envs/nodenv/versions/15.12.0/bin/yarn install
+
+PATH: 
+  /Users/namba/.anyenv/envs/nodenv/versions/15.12.0/bin:/Users/namba/.anyenv/envs/nodenv/libexec:/Users/namba/.anyenv/envs/nodenv/plugins/nodenv-vars/bin:/Users/namba/.anyenv/envs/nodenv/plugins/nodenv-default-packages/bin:/Users/namba/.anyenv/envs/nodenv/plugins/node-build/bin:/usr/local/opt/mysql@5.7/bin:/Users/namba/.anyenv/envs/rbenv/shims:/Users/namba/.anyenv/envs/rbenv/shims:/Users/namba/.anyenv/envs/rbenv/bin:/Users/namba/.anyenv/envs/nodenv/shims:/Users/namba/.anyenv/envs/nodenv/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/opt/mysql@5.7/bin:/Users/namba/.anyenv/envs/rbenv/shims:/Users/namba/.anyenv/envs/rbenv/bin:/Users/namba/.anyenv/envs/nodenv/shims:/Users/namba/.anyenv/envs/nodenv/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: connect ENETUNREACH 104.16.26.35:443 - Local (0.0.0.0:50380)
+      at internalConnect (node:net:909:16)
+      at defaultTriggerAsyncIdScope (node:internal/async_hooks:431:12)
+      at emitLookup (node:net:1055:9)
+      at /Users/namba/.anyenv/envs/nodenv/versions/15.12.0/lib/node_modules/yarn/lib/cli.js:107131:28
+      at /Users/namba/.anyenv/envs/nodenv/versions/15.12.0/lib/node_modules/yarn/lib/cli.js:107040:13
+      at RawTask.module.exports.RawTask.call (/Users/namba/.anyenv/envs/nodenv/versions/15.12.0/lib/node_modules/yarn/lib/cli.js:83614:19)
+      at flush (/Users/namba/.anyenv/envs/nodenv/versions/15.12.0/lib/node_modules/yarn/lib/cli.js:83696:29)
+      at processTicksAndRejections (node:internal/process/task_queues:76:11)
+      at runNextTicks (node:internal/process/task_queues:63:3)
+      at processImmediate (node:internal/timers:437:9)
+
+npm manifest: 
+  {
+    "name": "yomiagekun",
+    "version": "0.0.0",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc && vite build",
+      "serve": "vite preview"
+    },
+    "dependencies": {
+      "preact": "^10.5.13"
+    },
+    "devDependencies": {
+      "@preact/preset-vite": "^2.0.0",
+      "typescript": "^4.3.2",
+      "vite": "^2.6.4"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
