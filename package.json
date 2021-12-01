@@ -4,17 +4,27 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "lint:script": "eslint --ext .ts,tsx --ignore-path .gitignore ."
   },
   "dependencies": {
     "preact": "^10.5.13"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "autoprefixer": "^10.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-preact": "^1.2.0",
+    "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.4.3",
+    "prettier": "^2.5.0",
     "tailwindcss": "^2.2.19",
-    "typescript": "^4.3.2",
+    "typescript": "^4.5.2",
     "vite": "^2.6.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*": "prettier -w -u"
   }
 }
