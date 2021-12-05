@@ -1,6 +1,7 @@
 export function App() {
   const speak = (text: string) => {
-    const googleApiKey = import.meta.env.VITE_API_KEY
+    const googleApiKey = import.meta.env.VITE_GOOGLE_API_KEY
+    console.log(import.meta.env.VITE_GOOGLE_API_KEY)
     const url =
       'https://texttospeech.googleapis.com/v1/text:synthesize?key=' +
       googleApiKey
