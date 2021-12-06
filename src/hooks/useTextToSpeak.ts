@@ -29,7 +29,7 @@ export const useTextToSpeak = () => {
       },
       voice: {
         languageCode: 'ja-JP',
-        name: 'ja-JP-Standard-B',
+        name: 'ja-JP-Standard-C',
       },
       audioConfig: {
         audioEncoding: 'MP3',
