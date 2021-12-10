@@ -88,6 +88,7 @@ export function App() {
         >
           読み上げ
         </button>
+        <div id="output"></div>
       </form>
     </div>
   )

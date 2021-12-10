@@ -12,7 +12,6 @@ export const useTextToSpeak = () => {
 
   const handleValuesChange = (e: any) => {
     const name = e.target.name
-    console.log({ ...values, [name]: e.target.value })
     setValues({ ...values, [name]: e.target.value })
   }
 
@@ -63,6 +62,7 @@ export const useTextToSpeak = () => {
       .then((res) => {
         try {
           var blobUrl = base64ToBlobUrl(res.audioContent)
+          addAudioTag(blobUrl)
           var audio = new Audio()
           audio.src = blobUrl
           audio.play()
@@ -81,8 +81,20 @@ export const useTextToSpeak = () => {
       buffer[i] = bin.charCodeAt(i)
     }
     return window.URL.createObjectURL(
-      new Blob([buffer.buffer], { type: 'audio/wav' })
+      new Blob([buffer.buffer], { type: 'audio/mp3' })
     )
+  }
+  // オーディオタグの追加
+  function addAudioTag(blobUrl: string) {
+    let output = document.getElementById("output")
+    if (output) {
+      var au = document.createElement('audio')
+      au.controls = true
+      au.src = blobUrl
+      output.appendChild(au)
+      var br = document.createElement('br')
+      output.appendChild(br)
+    }
   }
 
   return {
