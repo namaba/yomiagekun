@@ -1,24 +1,36 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import { initialValues, voiceNameOptions } from '../data'
+import { Values } from '../type'
 
 export const useTextToSpeak = () => {
-  const [value, setValue] = useState<string>('')
+  const [values, setValues] = useState<Values>({ ...initialValues })
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setValue(e.target.value)
-    },
-    []
-  )
+  useEffect(() => {
+    const defaultVoiceName = voiceNameOptions[values.language][0].value
+    setValues({ ...values, voiceName: defaultVoiceName })
+  }, [values.language])
+
+  const handleValuesChange = (e: any) => {
+    const name = e.target.name
+    console.log({ ...values, [name]: e.target.value })
+    setValues({ ...values, [name]: e.target.value })
+  }
 
   const handleSubmit = useCallback(
     (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
-      speak(value)
+      speak(values)
     },
-    [value]
+    [values]
   )
 
-  const speak = (text: string) => {
+  const speak = ({
+    text,
+    language,
+    voiceName,
+    speakingRate,
+    pitch,
+  }: Values) => {
     const googleApiKey = import.meta.env.VITE_GOOGLE_API_KEY
     const url =
       'https://texttospeech.googleapis.com/v1/text:synthesize?key=' +
@@ -28,13 +40,13 @@ export const useTextToSpeak = () => {
         text: text,
       },
       voice: {
-        languageCode: 'ja-JP',
-        name: 'ja-JP-Standard-C',
+        languageCode: language,
+        name: voiceName,
       },
       audioConfig: {
         audioEncoding: 'MP3',
-        speaking_rate: '1.00',
-        pitch: '0.00',
+        speaking_rate: speakingRate,
+        pitch: pitch,
       },
     }
     const otherparam = {
@@ -74,8 +86,8 @@ export const useTextToSpeak = () => {
   }
 
   return {
-    value,
-    handleChange,
+    values,
+    handleValuesChange,
     handleSubmit,
   }
 }
