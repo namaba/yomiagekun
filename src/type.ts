@@ -12,7 +12,7 @@ export type Langage = {
 }
 
 export type VoiceName = {
-  label: '女性A' | '女性B' | '男性A' | '男性B'
+  label: '女性A' | '女性B' | '女性C' | '男性A' | '男性B' | '男性C' | '男性D'
   value: string
 }
 

@@ -86,19 +86,26 @@ export const useTextToSpeak = () => {
   }
   // オーディオタグの追加
   function addAudioTag(blobUrl: string) {
-    let output = document.getElementById("output")
+    // すでにダウンロードリンクがあったら削除する
+    let audio = document.getElementById('download')
+    audio?.remove()
+
+    let output = document.getElementById('output')
     if (output) {
       var au = document.createElement('audio')
+      au.id = 'download'
+      au.className = 'mt-3'
       au.controls = true
       au.src = blobUrl
       output.appendChild(au)
-      var br = document.createElement('br')
-      output.appendChild(br)
     }
   }
 
+  const buttonDisabled = !values.text
+
   return {
     values,
+    buttonDisabled,
     handleValuesChange,
     handleSubmit,
   }

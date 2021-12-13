@@ -1,6 +1,5 @@
 import { Langage, Values, VoiceNameOptions } from './type'
 
-
 export const initialValues: Values = {
   text: '',
   language: 'ja-JP',
@@ -35,20 +34,28 @@ export const voiceNameOptions: VoiceNameOptions = {
   ],
   'en-US': [
     {
-      label: '女性A',
+      label: '男性A',
       value: 'en-US-Standard-A',
     },
     {
-      label: '女性B',
+      label: '男性B',
       value: 'en-US-Standard-B',
     },
     {
-      label: '男性A',
+      label: '男性C',
+      value: 'en-US-Standard-D',
+    },
+    {
+      label: '女性A',
       value: 'en-US-Standard-C',
     },
     {
-      label: '男性B',
-      value: 'en-US-Standard-D',
+      label: '女性B',
+      value: 'en-US-Standard-E',
+    },
+    {
+      label: '女性C',
+      value: 'en-US-Standard-F',
     },
   ],
 }
