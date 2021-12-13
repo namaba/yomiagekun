@@ -2,7 +2,8 @@ import { languageOptions, voiceNameOptions } from './data'
 import { useTextToSpeak } from './hooks/useTextToSpeak'
 
 export function App() {
-  const { values, handleValuesChange, handleSubmit } = useTextToSpeak()
+  const { values, buttonDisabled, handleValuesChange, handleSubmit } =
+    useTextToSpeak()
 
   return (
     <div className="p-5 md:w-1/2 sm:w-full mx-auto">
@@ -10,7 +11,7 @@ export function App() {
       <form onSubmit={handleSubmit}>
         <label className="block">
           <textarea
-          placeholder="ここに読み上げたいテキストを貼り付けてください"
+            placeholder="ここに読み上げたいテキストを貼り付けてください"
             className="
           mt-0
           block
@@ -84,7 +85,8 @@ export function App() {
         <button
           type="submit"
           value="Submit"
-          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l w-full"
+          className="w-full bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded disabled:cursor-not-allowed disabled:bg-indigo-200"
+          disabled={buttonDisabled}
         >
           読み上げ
         </button>
