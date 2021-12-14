@@ -7,7 +7,7 @@ export function App() {
 
   return (
     <div className="p-5 md:w-1/2 sm:w-full mx-auto">
-      <h1 className="text-purple-600 font-bold text-2xl mb-5">読み上げくん</h1>
+      <h1 className="text-purple-600 font-bold text-2xl mb-5">TRANSLATION</h1>
       <form onSubmit={handleSubmit}>
         <label className="block">
           <textarea
